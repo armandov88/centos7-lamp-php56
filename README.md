@@ -51,6 +51,7 @@ Although the machine has XDebug installed, it is not active by default to do tha
 At the very bottom of the page, add the following lines:
 
 [Xdebug]
+
 zend_extension = /usr/lib64/php/modules/xdebug.so
 xdebug.default_enable=1
 xdebug.remote_handler=dbgp
