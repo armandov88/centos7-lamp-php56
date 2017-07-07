@@ -27,13 +27,13 @@ You will also need [Virtual Box](https://www.virtualbox.org/wiki/Downloads) and 
 
 * cd /projects (Where your projet will live)
 
-* git clone https://github.com/armandov88/centos-base-lamp-php56.git
+* git clone https://github.com/armandov88/centos7-lamp-php56.git
 
-* cd /centos-base-lamp-php56
+* cd /centos7-lamp-php56
 
 * Modify your Vagrantfile to suit your project needs.
 
-* clone or copy your site project into the directory so it should look like: "/centos-base-lamp-php56/my-awesome-project"
+* clone or copy your site project into the directory so it should look like: "/centos7-base-lamp-php56/my-awesome-project"
 
 * run vagrant up; vagrant ssh
 
@@ -50,23 +50,23 @@ Although the machine has XDebug installed, it is not active by default to do tha
 
 At the very bottom of the page, add the following lines:
 
-> [Xdebug]
+[Xdebug]
 
-> zend_extension = /usr/lib64/php/modules/xdebug.so
+zend_extension = /usr/lib64/php/modules/xdebug.so
 
-> xdebug.default_enable=1
+xdebug.default_enable=1
 
-> xdebug.remote_handler=dbgp
+xdebug.remote_handler=dbgp
 
-> xdebug.remote_enable = 1
+xdebug.remote_enable = 1
 
-> xdebug.remote_connect_back = 1
+xdebug.remote_connect_back = 1
 
-> xdebug.remote_host=10.0.2.15
+xdebug.remote_host=10.0.2.15
 
-> xdebug.remote_port=9000
+xdebug.remote_port=9000
 
-> xdebug.remote_log=/temp/xdebug.log
+xdebug.remote_log=/temp/xdebug.log
 
 Save your changes and restart apache:
 
