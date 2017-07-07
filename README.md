@@ -53,12 +53,19 @@ At the very bottom of the page, add the following lines:
 [Xdebug]
 
 >zend_extension = /usr/lib64/php/modules/xdebug.so
+
 xdebug.default_enable=1
+
 xdebug.remote_handler=dbgp
+
 xdebug.remote_enable = 1
+
 xdebug.remote_connect_back = 1
+
 xdebug.remote_host=10.0.2.15
+
 xdebug.remote_port=9000
+
 xdebug.remote_log=/temp/xdebug.log
 
 Save your changes and restart apache:
