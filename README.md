@@ -52,7 +52,7 @@ At the very bottom of the page, add the following lines:
 
 [Xdebug]
 
-zend_extension = /usr/lib64/php/modules/xdebug.so
+>zend_extension = /usr/lib64/php/modules/xdebug.so
 xdebug.default_enable=1
 xdebug.remote_handler=dbgp
 xdebug.remote_enable = 1
