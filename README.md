@@ -41,6 +41,43 @@ You will also need [Virtual Box](https://www.virtualbox.org/wiki/Downloads) and 
 
 If you need anything NOT included with the base of this box, feel free to add to it. This is just a base and not meant to be a kitchen-sink type project.
 
+### SSL Certs
+
+If the project you're working on requires an SSL certificate to load assets or whatever, follow these steps below:
+
+> On host machine (OSX)
+ 
+ * Open Terminal cd into site root (where VagrantFile lives)
+
+ * openssl genrsa -out example.com.key 2048
+
+ * openssl req -new -x509 -key example.com.key -out example.com.cert -days 3650 -subj /CN=example.com
+
+ * vagrant up; vagrant ssh
+
+ * sudo vi /etc/httpd/conf/httpd.conf
+
+ * Just below document root, add:
+
+ > SSLEngine on
+
+ > SSLCertificateFile /vagrant/example.com.cert
+
+ > SSLCertificateKeyFile /vagrant/example.com.key
+
+ * navigate to your site conf file (/etc/httpd/conf.d/my-site.conf)
+
+ * add the following:
+
+ > <VirtualHost *:443>
+
+ > ServerName local.example.com
+
+ > DocumentRoot /var/www/html/public
+
+ > Redirect permanent / https://local.example.com/
+
+ > </VirtualHost>
 
 ### XDebug
 
@@ -71,3 +108,27 @@ xdebug.remote_log=/temp/xdebug.log
 Save your changes and restart apache:
 
 > sudo systemctl restart httpd
+
+
+### SELINUX ISSUES
+
+If you run into permission issues, disable SELinux. Not ideal, but it's the best we got right now.
+
+## Laravel 
+
+This VM should only be used for Laravel v <= 5.3. 5.4 Laravel should be ran on on a box with PHP 7 or directly from Homestead...
+
+Add this to your site.conf file (cd /etc/httpd/conf.d/your-site.conf):
+
+<VirtualHost *:80>
+
+    DocumentRoot /var/www/html/your_site/public
+
+    ServerName your_domain
+
+    <Directory /var/www/html/your_site/>
+
+        AllowOverride All
+        
+    </Directory>
+</VirtualHost>

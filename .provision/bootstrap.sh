@@ -11,6 +11,9 @@ echo "Install Dependency Packages for APC..."
 echo "Installing APC(u)..."
     sudo yum install php56u-pecl-apcu
 
+echo "Installing mod_ssl for apache"
+    sudo yum install -y mod_ssl
+
 echo "Installing Xdebug..."
     sudo yum install php56u-devel
     sudo yum install php56u-pear
@@ -22,4 +25,5 @@ echo "Installing Xdebug..."
 echo "Installing Redis PHP Extension..."
     sudo pecl install redis-2.2.8
 
+sudo systemctl httpd restart
 echo "Everything seems okay...booting machine..."
