@@ -15,7 +15,7 @@ echo "Installing mod_ssl for apache"
     sudo yum install -y mod_ssl
 
 echo "Installing mcrypt for php5.6..."
-    wget http://http://dl.fedoraproject.org/pub/epel/7/x86_64/l/libmcrypt-2.5.8-13.el7.x86_64.rpm
+    wget http://dl.fedoraproject.org/pub/epel/7/x86_64/l/libmcrypt-2.5.8-13.el7.x86_64.rpm
     rpm -Uvh libmcrypt-2.5.8-13.el7.x86_64.rpm
     sudo yum install -y php56u-mcrypt
 
@@ -27,5 +27,6 @@ echo "Installing Xdebug..."
 echo "Installing Redis PHP Extension..."
     sudo pecl install redis-2.2.8
 
-sudo systemctl httpd restart
+sudo systemctl restart httpd
+sudo setenforce Permissive
 echo "Everything seems okay...booting machine..."
