@@ -11,6 +11,9 @@ echo "Install Dependency Packages for APC..."
 echo "Installing APC(u)..."
     sudo yum install php56u-pecl-apcu
 
+echo "Installing APC"
+    sudo yum install php56u-apc
+
 echo "Installing mod_ssl for apache"
     sudo yum install -y mod_ssl
 
