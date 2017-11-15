@@ -36,4 +36,6 @@ echo "Installing mysql..."
 sudo systemctl restart httpd
 sudo systemctl enable redis
 sudo setenforce Permissive
+sudo systemctl restart httpd
+
 echo "Everything seems okay...booting machine..."
