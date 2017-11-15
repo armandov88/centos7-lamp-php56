@@ -14,6 +14,9 @@ echo "Installing APC(u)..."
 echo "Installing APC"
     sudo yum install php56u-apc
 
+echo "Installing mcrypt extension for PHP..."
+    sudo yum install php56u-mcrypt
+
 echo "Installing mod_ssl for apache"
     sudo yum install -y mod_ssl
 
@@ -36,6 +39,4 @@ echo "Installing mysql..."
 sudo systemctl restart httpd
 sudo systemctl enable redis
 sudo setenforce Permissive
-sudo systemctl restart httpd
-
 echo "Everything seems okay...booting machine..."
