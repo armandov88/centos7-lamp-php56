@@ -30,6 +30,10 @@ echo "Installing Xdebug..."
 echo "Installing Redis PHP Extension..."
     sudo pecl install redis-2.2.8
 
+echo "Installing mysql..."
+    sudo yum install php56u-mysql
+
 sudo systemctl restart httpd
+sudo systemctl enable redis
 sudo setenforce Permissive
 echo "Everything seems okay...booting machine..."
